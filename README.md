@@ -1,24 +1,22 @@
 # React Native View Pager
 
-Reference project, demonstrate swipable horizontal page scrolling in React Native using Animated.View and PanResponder.
-
+Reference project, demonstrate gesture based horizontal page scrolling in React
+Native using Animated.View and PanResponder.
 
 ## Requirements
 
-- Should render horizontally scrollable page content
-- Should snap content to centre
-- Should swipe to scroll previous / next
-
+* Should render horizontally scrollable page content
+* Should snap content to centre
+* Should swipe to scroll previous / next
 
 ## Design
 
-
-```                                                                                
+```
 <---------------------  No. Pages = pageData.length  -------------------------->
-                                                                                
-                                                                                
- <---- Page 1 ----->       Page 2       <----- Page 3 ----> <---- Page 4 -----> 
-                  +----------------------+                                      
+
+
+ <---- Page 1 ----->       Page 2       <----- Page 3 ----> <---- Page 4 ----->
+                  +----------------------+
 +-----------------+ +------------------- +-----------------+-------------------+
 |                 |                    | |                                     |
 |                 | |                  | |                 |                   |
@@ -31,30 +29,29 @@ Reference project, demonstrate swipable horizontal page scrolling in React Nativ
 |                 |                    | |                                     |
 |                 | |                  | |                 |                   |
 +-----------------+ +------------------+ +-------------------------------------+
-                  |         .-.          |                                      
-                  |        (   )         |                                      
-                  |         `-'          |                                      
-                  +----------------------+                                      
-                                                                                
-                                                                                
- |                  |                  |                   |                    
- |                  |                  |                   |                    
- |                  |                  |                   |                    
- v                  v                  v                   v                    
-                                                                                
- i = 0              i = 1              i = 2               i = 3                
- x = i * -width     x = i * -width     x = i * -width      x = i * -width       
-```                           
+                  |         .-.          |
+                  |        (   )         |
+                  |         `-'          |
+                  +----------------------+
 
+
+ |                  |                  |                   |
+ |                  |                  |                   |
+ |                  |                  |                   |
+ v                  v                  v                   v
+
+ i = 0              i = 1              i = 2               i = 3
+ x = i * -width     x = i * -width     x = i * -width      x = i * -width
+```
 
 ## Usage
 
 Super basic example...
 
 ```javascript
-const pageData = [{text: 'Hello'}, {text: 'World'}];
+const pageData = [{ text: "Hello" }, { text: "World" }];
 
-const Page = (page) => (
+const Page = page => (
   <View>
     <Text>{page.text}</Text>
   </View>
@@ -62,11 +59,10 @@ const Page = (page) => (
 
 const App = () => (
   <View style={{ flex: 1 }}>
-      <ViewPager renderPage={Page} pageData={data} />
+    <ViewPager renderPage={Page} pageData={data} />
   </View>
-)
+);
 ```
-
 
 ## Running the Project
 

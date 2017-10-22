@@ -38,8 +38,8 @@ type Props = DefaultProps & {
 type State = {
   index: number,
   x: number,
-  offset: number,
-  xTracker: Animated.Value
+  offset: number
+  // xTracker: Animated.Value
 };
 
 class ViewPager extends Component<DefaultProps, Props, State> {
@@ -64,8 +64,8 @@ class ViewPager extends Component<DefaultProps, Props, State> {
     this.state = {
       index: initialIndex,
       x: -width * initialIndex,
-      offset: 0,
-      xTracker: this.xTracker
+      offset: 0
+      // xTracker: this.xTracker
     };
   }
 
@@ -99,15 +99,16 @@ class ViewPager extends Component<DefaultProps, Props, State> {
 
   getNextPage(x: number, vx: number = 0) {
     const isThrown = vx && (vx < -0.5 || vx > 0.5);
+    const absX = -Math.abs(x);
 
     let index;
     if (isThrown) {
       index =
         vx > 0
-          ? Math.abs(Math.ceil(x / width))
-          : Math.abs(Math.floor(x / width));
+          ? Math.abs(Math.ceil(absX / width))
+          : Math.abs(Math.floor(absX / width));
     } else {
-      index = Math.abs(Math.round(x / width));
+      index = Math.abs(Math.round(absX / width));
     }
 
     return Math.min(Math.max(index, 0), this.props.pageData.length - 1);
@@ -136,13 +137,13 @@ class ViewPager extends Component<DefaultProps, Props, State> {
   }
 
   render() {
-    const { index, xTracker } = this.state;
+    const { index } = this.state;
 
     return (
       <View style={styles.container}>
         <Animated.View
           {...this.panResponder.panHandlers}
-          style={[styles.container, { left: xTracker }]}
+          style={[styles.container, { left: this.xTracker }]}
         >
           {this.renderPages(index)}
         </Animated.View>
