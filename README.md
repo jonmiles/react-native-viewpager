@@ -3,6 +3,8 @@
 Reference project, demonstrate gesture based horizontal page scrolling in React
 Native using Animated.View and PanResponder.
 
+![Example View Pager](https://raw.github.com/jonmiles/react-native-viewpager/master/assets/demo.gif)
+
 ## Requirements
 
 * Should render horizontally scrollable page content
@@ -69,13 +71,13 @@ const App = () => (
 First, checkout the code
 
 ```javascript
-git clone ...
+git clone https://github.com/jonmiles/react-native-viewpager.git
 ```
 
 Install project dependencies
 
 ```javascript
-cd ...
+cd react-native-viewpager
 yarn
 ```
 

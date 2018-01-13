@@ -31,15 +31,14 @@ type DefaultProps = {
 };
 
 type Props = DefaultProps & {
-  renderPage: Function,
-  pageData: any[]
+  pageData: any[],
+  renderPage: Function
 };
 
 type State = {
   index: number,
   x: number,
   offset: number
-  // xTracker: Animated.Value
 };
 
 class ViewPager extends Component<DefaultProps, Props, State> {
@@ -65,7 +64,6 @@ class ViewPager extends Component<DefaultProps, Props, State> {
       index: initialIndex,
       x: -width * initialIndex,
       offset: 0
-      // xTracker: this.xTracker
     };
   }
 
