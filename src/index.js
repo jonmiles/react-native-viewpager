@@ -1,3 +1,3 @@
 // @flow
 
-export { default as ViewPager } from "./ViewPager";
+export { default as ViewPager } from './ViewPager';

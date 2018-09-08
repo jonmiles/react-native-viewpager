@@ -5,17 +5,20 @@
   "devDependencies": {
     "flow-bin": "^0.80.0",
     "jest-expo": "~27.0.0",
+    "prettier": "^1.14.2",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
+    "prettier": "prettier --write \"{src,config}/**/*.js\" .eslintrc.js",
+    "prettier-check": "prettier --list-different \"{src,config}/**/*.js\" .eslintrc.js",
     "flow": "flow",
+    "test": "jest",
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "jest"
+    "ios": "react-native-scripts ios"
   },
   "jest": {
     "preset": "jest-expo"
